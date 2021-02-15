@@ -1,0 +1,8 @@
+{
+  "name": "form",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Echzio/form.git",
+  "author": "Echzio <aleksassincreed@yandex.ru>",
+  "license": "MIT"
+}

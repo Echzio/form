@@ -147,10 +147,6 @@ module.exports = (env, { mode }) => {
         include: 'allAssets',
         fileBlacklist: [/\.map$/, /hot-update\.js$/],
       }),
-      new PreloadWebpackPlugin({
-        rel: 'prefetch',
-        include: 'asyncChunks',
-      }),
     );
   }
 

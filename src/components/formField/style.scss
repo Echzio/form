@@ -1,0 +1,102 @@
+.form-field {
+  $parent: &;
+  position: relative;
+  display: grid;
+  row-gap: 8px;
+  padding-bottom: 5px;
+
+  label {
+    display: grid;
+    cursor: text;
+    grid-template-columns: min-content auto;
+    align-items: center;
+    column-gap: 15px;
+    transform: translateY(23px);
+    transition: transform 0.1s ease-in-out;
+
+    #{$parent}__name {
+      font-size: 16px;
+      color: var(--gray);
+    }
+
+    #{$parent}__error {
+      font-size: 14px;
+      color: var(--error);
+      animation: errorFieldShow 0.3s ease-in-out;
+
+      &_hide {
+        animation: errorFieldHide 0.3s ease-in-out;
+      }
+    }
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  &_focused {
+    &::after {
+      background-color: var(--form-gradient-start);
+    }
+
+    label {
+      transform: translateY(0);
+      cursor: default;
+    }
+  }
+
+  &_filled {
+    label {
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes errorFieldShow {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes errorFieldHide {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+@media (max-width: 575px) {
+  .form-field label {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

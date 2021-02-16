@@ -3,7 +3,7 @@ import './style.scss';
 const Background = () => (
   <div className="background-wrapper">
     <img
-      src="/assets/images/mountain.jpg"
+      src="./assets/images/mountain.jpg"
       alt="form background"
       className="background-wrapper__image"
     />
